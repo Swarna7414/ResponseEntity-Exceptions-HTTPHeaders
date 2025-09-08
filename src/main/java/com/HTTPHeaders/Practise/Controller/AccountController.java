@@ -1,14 +1,11 @@
 package com.HTTPHeaders.Practise.Controller;
 
-
 import com.HTTPHeaders.Practise.Model.Account;
 import com.HTTPHeaders.Practise.Model.Country;
 import com.HTTPHeaders.Practise.Model.Currency;
 import com.HTTPHeaders.Practise.Response.APIResponse;
 import com.HTTPHeaders.Practise.Service.AccountService;
-import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -27,7 +24,7 @@ public class AccountController {
     private AccountService accountService;
 
     @PostMapping("/create")
-    public ResponseEntity<APIResponse<Account>> createAccount(@Valid @RequestBody Account account) throws URISyntaxException {
+    public ResponseEntity<APIResponse<Account>> createAccount(@RequestBody Account account) throws URISyntaxException {
         APIResponse response = new APIResponse(true, HttpStatus.CREATED,accountService.createaccount(account));
 
         return ResponseEntity.created(new URI("/accounts"+account.getId())).body(response);

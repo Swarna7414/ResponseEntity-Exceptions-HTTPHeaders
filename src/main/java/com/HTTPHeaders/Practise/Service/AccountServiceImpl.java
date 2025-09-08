@@ -27,9 +27,9 @@ public class AccountServiceImpl implements AccountService{
 
     @Override
     public Account createaccount(Account account) {
-        if (accountRepository.existsById(account.getId())){
-            throw new DuplicateRequestException("Account Already exists");
-        }
+//        if (accountRepository.existsById(account.getId())){
+//            throw new DuplicateRequestException("Account Already exists");
+//        }
 
         return accountRepository.save(account);
     }
