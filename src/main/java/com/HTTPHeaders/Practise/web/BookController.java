@@ -96,4 +96,5 @@ public class BookController {
         response.setCacheControl(CacheControl.noStore().getHeaderValue());
         return new ResponseEntity<>(response, HttpStatus.NO_CONTENT);
     }
+
 }
